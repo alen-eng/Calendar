@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import dayjs from "dayjs";
+import React, { useState ,useEffect } from "react";
+import { generateDate, months } from "./util/calender";
+import cn from "./util/cn";
+import { GrFormNext, GrFormPrevious } from "react-icons/gr";
+import  { gapi } from 'gapi-script';
+import Events from "./components/Events";
+import Home from "./components/Home";
+import { Route , Routes, useNavigate, Switch} from "react-router-dom";
+export default function Calendar() {
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+    <><Routes>
+       <Route exact path="/" Component={Home}/>
+       <Route exact path="/events" Component={Events} />
+    </Routes>
+      </>
+	);
 }
-
-export default App;
